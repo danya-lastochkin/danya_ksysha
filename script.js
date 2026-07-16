@@ -126,7 +126,7 @@ function updateCountdown() {
 }
 
 // 7. Навигация по странице (плавный скролл)
-function scrollTo(sectionId) {
+function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
         element.scrollIntoView({
