@@ -433,106 +433,39 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* --- ИСПРАВЛЕННЫЕ БЛОКИ: RSVP, Вишлист, Таймер (Теперь строго по центру) --- */
-.rsvp-section { 
-    padding: 20px; 
-    gap: 15px; 
-    max-width: 450px; 
-    width: 100%; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    margin: 0 auto; 
-}
-
-.gift-section { 
-    padding: 20px; 
-    gap: 15px; 
-    max-width: 450px; 
-    width: 100%; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    margin: 0 auto;
-}
-
-.countdown-section { 
-    padding: 20px; 
-    gap: 15px; 
-    max-width: 450px; 
-    width: 100%; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    margin: 0 auto;
-}
-
-/* --- RSVP (Подтверждение) --- */
-.rsvp-actions { display: flex; gap: 15px; width: 100%; max-width: 320px; margin-top: 5px; }
-.rsvp-btn {
-    flex: 1;
-    padding: 15px 0;
-    border: 2px solid var(--text-dark);
-    background-color: var(--white-box);
-    color: var(--text-dark);
-    font-weight: 800;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-.rsvp-btn.active, .rsvp-btn:active {
-    background-color: var(--text-dark);
-    color: var(--text-light);
-}
-
-.rsvp-form { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 10px; margin-top: 5px; }
-.rsvp-form label { font-weight: 700; font-size: 13px; text-align: left; width: 100%; margin-top: 5px; opacity: 0.8; }
-.rsvp-input {
+/* --- Упрощенная Анкета --- */
+.rsvp-section {
+    padding: 20px;
+    gap: 15px;
+    max-width: 450px;
     width: 100%;
-    padding: 15px;
-    border: 1px solid #dddddd;
-    border-radius: 6px;
-    background-color: var(--white-box);
-    font-size: 14px;
-    font-family: 'Montserrat', sans-serif;
-    outline: none;
-    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
 }
-.rsvp-input:focus { border-color: var(--text-dark); }
 
-.drink-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.drink-btn {
-    flex: 0 0 calc(33.33% - 7px);
-    padding: 10px 5px;
-    border: 1px solid #dddddd;
-    background-color: var(--white-box);
-    color: var(--text-dark);
-    font-weight: 600;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: center;
-}
-.drink-btn.full-width { flex: 1 1 100%; }
-.drink-btn.selected { border: 2px solid var(--text-dark); background-color: #f0eaff; font-weight: 800; }
-
-.rsvp-submit-btn {
+.rsvp-simple-btn {
     width: 100%;
     padding: 18px;
-    margin-top: 10px;
-    border: none;
     background-color: var(--text-dark);
     color: var(--text-light);
+    border: none;
+    border-radius: 6px;
     font-weight: 800;
     font-size: 16px;
-    border-radius: 6px;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 20px rgba(45, 3, 92, 0.3);
+    transform: rotate(-1deg);
 }
-.rsvp-submit-btn:active { opacity: 0.8; transform: scale(0.98); }
 
-/* --- Вишлист (Подарки) --- */
+.rsvp-simple-btn:active {
+    transform: scale(0.95) rotate(0deg);
+    box-shadow: 0 4px 10px rgba(45, 3, 92, 0.2);
+}
+
+/* --- Вишлист --- */
 .gift-list { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 15px; margin-top: 5px; }
 .gift-item {
     background-color: var(--white-box);
@@ -558,7 +491,7 @@ body {
 }
 .gift-reserve-btn.reserved { background-color: #e0dced; border-color: #b3a7d1; color: #b3a7d1; pointer-events: none; }
 
-/* --- Обратный отсчет --- */
+/* --- Таймер --- */
 .countdown-container {
     display: flex;
     justify-content: center;
@@ -599,7 +532,7 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрируем текст в подвале */
+    align-items: center;
     border-radius: 30px 30px 0 0;
 }
 .footer-star {
