@@ -181,48 +181,23 @@
         </div>
     </section>
 
-    <!-- 11. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ (RSVP) -->
-    <section class="rsvp-section scroll-section">
+    <!-- 11. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ (Упрощенная версия) -->
+    <section class="rsvp-section scroll-section" style="padding-bottom: 50px;">
         <div class="section-header-wrapper fade-up">
             <div class="small-star s-s3" style="top: -20px; left: 10%;">✦</div>
             <div class="section-title-tilt" style="font-size: 24px;">Подтвердите<br>присутствие</div>
             <div class="small-star s-s4" style="bottom: -10px; right: 10%;">✦</div>
         </div>
 
-        <p class="section-desc fade-up" style="font-size: 13px;">Будем благодарны, если вы сообщите о своем присутствии заранее — это очень важно для нас при подготовке мероприятия</p>
+        <p class="section-desc fade-up" style="font-size: 13px; margin-bottom: 15px;">
+            Будем благодарны, если вы сообщите о своем присутствии. Нажмите на кнопку ниже, чтобы перейти к форме.
+        </p>
         
-        <div class="rsvp-actions fade-up">
-            <button class="rsvp-btn active" id="acceptBtn" onclick="setRsvp('accept')">Принять</button>
-            <button class="rsvp-btn" id="declineBtn" onclick="setRsvp('decline')">Отклонить</button>
-        </div>
-
-        <div class="rsvp-form fade-up">
-            <label>Ваше имя</label>
-            <input type="text" class="rsvp-input" placeholder="Например, Иван и Мария">
-
-            <label>Что будете пить?</label>
-            <div class="drink-grid">
-                <button class="drink-btn" onclick="toggleDrink(this)">Шампанское</button>
-                <button class="drink-btn" onclick="toggleDrink(this)">Вино</button>
-                <button class="drink-btn" onclick="toggleDrink(this)">Вермут (мартини)</button>
-                <button class="drink-btn" onclick="toggleDrink(this)">Виски</button>
-                <button class="drink-btn" onclick="toggleDrink(this)">Коньяк</button>
-                <button class="drink-btn" onclick="toggleDrink(this)">Водка</button>
-                <button class="drink-btn full-width" onclick="toggleDrink(this)">Я не пью алкоголь</button>
-            </div>
-
-            <label>Дополнительная информация</label>
-            <input type="text" class="rsvp-input" placeholder="Пожелания по рассадке, аллергии и т.д.">
-            
-            <button class="rsvp-submit-btn" onclick="submitRsvp()">Отправить ответ</button>
-        </div>
+        <!-- Упрощенная кнопка -->
+        <button class="rsvp-simple-btn fade-up" onclick="submitRsvp()">
+            Подтвердить присутствие ✉️
+        </button>
     </section>
-    <!-- Резервная ссылка -->
-<div class="fade-up" style="margin-top: 15px; text-align: center;">
-    <a href="https://forms.yandex.ru/u/6a58a7faf47e7309d190927c/" target="_blank" style="color: #2d035c; font-weight: 600; text-decoration: underline; font-size: 13px;">
-        Не работает кнопка? Перейдите к форме напрямую
-    </a>
-</div>
 
     <!-- 12. ЧТО ПОДАРИТЬ -->
     <section class="gift-section scroll-section">
