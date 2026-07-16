@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 3. Функция добавления в календарь
 function addToCalendar() {
-    const year = 2026;
-    const month = 7;
-    const day = 17;
-    const startHour = 17;
+    const year = 2027;
+    const month = 2;
+    const day = 27;
+    const startHour = 12;
     const startMinute = 0;
-    const durationHours = 5;
+    const durationHours = 10;
 
     const startDate = new Date(year, month - 1, day, startHour, startMinute);
     const endDate = new Date(startDate.getTime() + durationHours * 60 * 60 * 1000);
@@ -84,15 +84,6 @@ function addToCalendar() {
     document.body.removeChild(link);
 }
 
-// 4. Логика резервирования подарков
-function reserveGift(btn) {
-    const item = btn.closest('.gift-item');
-    const title = item.querySelector('.gift-title').innerText;
-    
-    btn.classList.add('reserved');
-    btn.innerText = 'Зарезервировано ✓';
-    alert(`Вы зарезервировали подарок: ${title}`);
-}
 
 // 5. САМАЯ ПРОСТАЯ ОТПРАВКА (Просто переход на Яндекс Форму)
 function submitRsvp() {
