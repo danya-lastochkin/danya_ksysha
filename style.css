@@ -57,16 +57,19 @@ body {
 
 .ticker {
     display: inline-block;
-    animation: ticker 20s linear infinite;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 2px;
-    padding-left: 100%;
+    white-space: nowrap;
+    /* Скорость бега: 20 секунд на полный цикл */
+    animation: ticker 20s linear infinite; 
+    padding-left: 0; /* Убираем старый отступ */
+}
+
+.ticker span {
+    display: inline-block;
 }
 
 @keyframes ticker {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(-50%); } /* Сдвигаем ровно на половину длины, чтобы создать непрерывность */
 }
 
 /* --- Меню навигации --- */
