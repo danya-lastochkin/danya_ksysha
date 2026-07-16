@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Свадебное приглашение</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Фоновые декоративные звезды -->
+    <div class="bg-star star-f1">✦</div>
+    <div class="bg-star star-f2">✦</div>
+    <div class="bg-star star-f3">✦</div>
+
+    <!-- 1. Бегущая строка с датой -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 /
+        </div>
+    </div>
+
+    <!-- 2. Меню навигации -->
+    <div class="nav-menu">
+        <div class="nav-item">Программа</div>
+        <div class="nav-item">Локация</div>
+        <div class="nav-item">Дресс-код</div>
+        <div class="nav-item wide">Анкета</div>
+    </div>
+
+    <!-- Кнопка музыки -->
+    <div class="music-btn-wrapper">
+        <audio id="weddingMusic" loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+        <button class="music-btn-circle" id="playBtn">
+            <span class="play-icon" id="playIcon">▶</span>
+        </button>
+    </div>
+
+    <!-- 3. Главный экран -->
+    <section class="hero scroll-section">
+        <div class="title-box fade-up">Невеста</div>
+        <div class="title-box small fade-up">и</div>
+        <div class="title-box fade-up">Жених</div>
+        <div class="subtitle fade-up">Любовь начинается здесь</div>
+    </section>
+
+    <!-- 4. Кулон -->
+    <section class="image-section scroll-section">
+        <div class="hero-image-wrapper fade-up">
+            <div class="star star-1">✦</div>
+            <div class="star star-2">✦</div>
+            <div class="star star-3">✦</div>
+            <img src="heart-locket.png" alt="Медальон" class="heart-locket">
+        </div>
+    </section>
+
+    <!-- 5. Дата -->
+    <section class="date-section scroll-section">
+        <div class="date-box fade-up">17</div>
+        <div class="date-box month fade-up">ИЮЛЯ</div>
+    </section>
+
+    <!-- 6. Приветствие -->
+    <section class="footer-greeting scroll-section">
+        <div class="greeting-box fade-up">Дорогие гости</div>
+        <div class="welcome-message fade-up">
+            В этот важный для нас день мы хотим разделить нашу радость с вами — самыми родными и близкими людьми. Ваше присутствие — лучший и самый ценный подарок. Ждём вас с огромным нетерпением! ❤️
+        </div>
+    </section>
+
+    <!-- 7. Календарь -->
+    <section class="footer-greeting scroll-section" style="padding-top: 0; margin-top: -15px;">
+        <div class="calendar-block fade-up">
+            <svg class="calendar-svg-arrows" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 40 50 Q 80 20 150 20 Q 220 20 250 70 Q 230 90 200 80" fill="none" stroke="#2d035c" stroke-width="4" opacity="0.15" stroke-linecap="round" />
+                <path d="M 40 50 L 20 55 M 20 55 L 30 40" fill="none" stroke="#2d035c" stroke-width="3" opacity="0.15" stroke-linecap="round" />
+                <path d="M 250 70 L 270 65 M 270 65 L 260 80" fill="none" stroke="#2d035c" stroke-width="3" opacity="0.15" stroke-linecap="round" />
+            </svg>
+            <div class="date-row">
+                <div class="cal-date inactive">
+                    <span class="cal-day">16</span>
+                    <span class="cal-month">июл</span>
+                </div>
+                <div class="cal-date active">
+                    <span class="cal-day">17</span>
+                    <span class="cal-month">июл</span>
+                </div>
+                <div class="cal-date inactive">
+                    <span class="cal-day">18</span>
+                    <span class="cal-month">июл</span>
+                </div>
+            </div>
+            <button class="calendar-btn" onclick="addToCalendar()">
+                Добавить в календарь
+            </button>
+        </div>
+    </section>
+
+    <!-- 8. Локация -->
+    <section class="info-section scroll-section">
+        <div class="section-header-wrapper fade-up">
+            <div class="small-star s-s1">✦</div>
+            <div class="section-title-tilt">Локация</div>
+            <div class="small-star s-s2">✦</div>
+        </div>
+        <p class="section-desc fade-up">Адрес и схема проезда — мы будем ждать вас здесь</p>
+        <div class="location-box fade-up">
+            📍 Ресторан «Небо»<br>
+            <span style="font-size: 14px; opacity: 0.7; font-weight: 600;">ул. Пушкина, д. 1</span>
+        </div>
+    </section>
+
+    <!-- 9. Тайминг -->
+    <section class="info-section scroll-section">
+        <div class="section-header-wrapper fade-up">
+            <div class="small-star s-s3">✦</div>
+            <div class="section-title-tilt" style="transform: rotate(2deg);">Тайминг</div>
+            <div class="small-star s-s4">✦</div>
+        </div>
+        <p class="section-desc fade-up" style="font-size: 13px;">Чтобы вам было проще ориентироваться в течение дня, мы подготовили небольшое расписание основных событий</p>
+        <div class="timeline-container fade-up">
+            <div class="timeline-line"></div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-time">14:00</span>
+                    <span class="timeline-event">Сбор гостей</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-time">15:00</span>
+                    <span class="timeline-event">Церемония</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-time">16:00</span>
+                    <span class="timeline-event">Фотосессия</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-time">17:00</span>
+                    <span class="timeline-event">Банкет</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Дресс-код -->
+    <section class="info-section scroll-section dress-code-section">
+        <div class="section-header-wrapper fade-up">
+            <div class="section-title-tilt" style="transform: rotate(-3deg);">Дресс-код</div>
+            <div class="small-star s-s4" style="top: -15px; right: 15%; font-size: 25px;">✦</div>
+        </div>
+        <p class="section-desc fade-up" style="font-size: 13px; max-width: 310px; text-align: justify; text-align-last: center;">
+            Нам будет очень приятно, если вы поддержите атмосферу праздника и выберете образы в предложенной цветовой гамме
+        </p>
+        <div class="dress-code-swatches fade-up">
+            <div class="swatch swatch-white"></div>
+            <div class="swatch swatch-black"></div>
+        </div>
+        <div class="dress-code-grid fade-up">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=600&fit=crop" alt="Мужской образ" class="dress-code-img">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=600&fit=crop" alt="Мужской образ" class="dress-code-img">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=600&fit=crop" alt="Мужской образ" class="dress-code-img">
+            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400&h=600&fit=crop" alt="Женский образ" class="dress-code-img">
+            <img src="https://images.unsplash.com/photo-1629126576381-d98d288af7c4?w=400&h=600&fit=crop" alt="Женский образ" class="dress-code-img">
+            <img src="https://images.unsplash.com/photo-1624297691910-06297189c259?w=400&h=600&fit=crop" alt="Женский образ" class="dress-code-img">
+        </div>
+    </section>
+
+    <!-- 11. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ (RSVP) -->
+    <section class="rsvp-section scroll-section">
+        <div class="section-header-wrapper fade-up">
+            <div class="small-star s-s3" style="top: -20px; left: 10%;">✦</div>
+            <div class="section-title-tilt" style="font-size: 24px;">Подтвердите<br>присутствие</div>
+            <div class="small-star s-s4" style="bottom: -10px; right: 10%;">✦</div>
+        </div>
+
+        <p class="section-desc fade-up" style="font-size: 13px;">Будем благодарны, если вы сообщите о своем присутствии заранее — это очень важно для нас при подготовке мероприятия</p>
+        
+        <div class="rsvp-actions fade-up">
+            <button class="rsvp-btn active" id="acceptBtn" onclick="setRsvp('accept')">Принять</button>
+            <button class="rsvp-btn" id="declineBtn" onclick="setRsvp('decline')">Отклонить</button>
+        </div>
+
+        <div class="rsvp-form fade-up">
+            <label>Ваше имя</label>
+            <input type="text" class="rsvp-input" placeholder="Например, Иван и Мария">
+
+            <label>Что будете пить?</label>
+            <div class="drink-grid">
+                <button class="drink-btn" onclick="toggleDrink(this)">Шампанское</button>
+                <button class="drink-btn" onclick="toggleDrink(this)">Вино</button>
+                <button class="drink-btn" onclick="toggleDrink(this)">Вермут (мартини)</button>
+                <button class="drink-btn" onclick="toggleDrink(this)">Виски</button>
+                <button class="drink-btn" onclick="toggleDrink(this)">Коньяк</button>
+                <button class="drink-btn" onclick="toggleDrink(this)">Водка</button>
+                <button class="drink-btn full-width" onclick="toggleDrink(this)">Я не пью алкоголь</button>
+            </div>
+
+            <label>Дополнительная информация</label>
+            <input type="text" class="rsvp-input" placeholder="Пожелания по рассадке, аллергии и т.д.">
+            
+            <button class="rsvp-submit-btn" onclick="submitRsvp()">Отправить ответ</button>
+        </div>
+    </section>
+    <!-- Резервная ссылка -->
+<div class="fade-up" style="margin-top: 15px; text-align: center;">
+    <a href="https://forms.yandex.ru/u/6a58a7faf47e7309d190927c/" target="_blank" style="color: #2d035c; font-weight: 600; text-decoration: underline; font-size: 13px;">
+        Не работает кнопка? Перейдите к форме напрямую
+    </a>
+</div>
+
+    <!-- 12. ЧТО ПОДАРИТЬ -->
+    <section class="gift-section scroll-section">
+        <div class="section-header-wrapper fade-up">
+            <div class="section-title-tilt" style="transform: rotate(-2deg);">Что дарить</div>
+            <div class="small-star s-s2" style="bottom: -10px; right: 10%; font-size: 30px;">✦</div>
+        </div>
+        
+        <p class="section-desc fade-up" style="font-size: 13px; max-width: 320px;">Мы составили вишлист — он поможет выбрать подарок</p>
+
+        <div class="gift-list fade-up">
+            <div class="gift-item">
+                <div class="gift-title">Сертификат на мастер класс</div>
+                <button class="gift-reserve-btn" onclick="reserveGift(this)">Зарезервировать</button>
+            </div>
+            <div class="gift-item">
+                <div class="gift-title">Бутылка хорошего вина</div>
+                <button class="gift-reserve-btn" onclick="reserveGift(this)">Зарезервировать</button>
+            </div>
+            <div class="gift-item">
+                <div class="gift-title">Тур в Мурманск</div>
+                <button class="gift-reserve-btn" onclick="reserveGift(this)">Зарезервировать</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. ОБРАТНЫЙ ОТСЧЕТ -->
+    <section class="countdown-section scroll-section">
+        <div class="section-header-wrapper fade-up">
+            <div class="section-title-tilt" style="font-size: 24px;">До нашей<br>свадьбы</div>
+        </div>
+
+        <p class="section-desc fade-up" style="font-size: 13px;">Совсем скоро наступит день, наполненный счастьем, красивыми моментами и самыми искренними эмоциями</p>
+
+        <div class="countdown-container fade-up">
+            <div class="countdown-box">
+                <span id="days">01</span>
+                <span class="countdown-label">Дней</span>
+            </div>
+            <div class="countdown-box">
+                <span id="hours">01</span>
+                <span class="countdown-label">Часов</span>
+            </div>
+            <div class="countdown-box">
+                <span id="minutes">34</span>
+                <span class="countdown-label">Минут</span>
+            </div>
+            <div class="countdown-box">
+                <span id="seconds">11</span>
+                <span class="countdown-label">Секунд</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. ПОДВАЛ (ФУТЕР) -->
+    <footer class="footer-section scroll-section" style="padding-bottom: 120px;">
+        <div class="footer-star">✦</div>
+        <div class="footer-text">
+            Спасибо,<br>что вы с нами
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
