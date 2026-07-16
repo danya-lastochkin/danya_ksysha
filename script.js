@@ -104,7 +104,8 @@ function toggleDrink(btn) {
 }
 
 // ==========================================
-// 6. ИСПРАВЛЕННАЯ ОТПРАВКА (Без ошибки CORS)
+// 6. ФИНАЛЬНАЯ ОТПРАВКА (Через предзаполненную ссылку)
+// Теперь 100% без ошибок CORS и POST
 // ==========================================
 function submitRsvp() {
     // Получаем все инпуты
@@ -131,34 +132,23 @@ function submitRsvp() {
         return;
     }
 
-    // Создаем скрытую форму для отправки в Яндекс (обход CORS)
-    const form = document.createElement('form');
-    form.action = `https://forms.yandex.ru/u/${YANDEX_FORM_ID}/`;
-    form.method = 'POST';
-    form.target = '_blank'; // Откроется в новой вкладке
+    // Собираем ссылку на Яндекс Форму с параметрами (работает через GET)
+    const formUrl = `https://forms.yandex.ru/u/${YANDEX_FORM_ID}/`;
+    
+    // Создаем параметры (они автоматически закодируют кириллицу и пробелы)
+    const params = new URLSearchParams();
+    params.append('Ваше имя', name);
+    params.append('Статус', statusText);
+    params.append('Напитки', drinksText);
+    params.append('Пожелания', info);
 
-    // Поля должны совпадать с названиями вопросов в вашей Яндекс Форме
-    const fields = [
-        { name: 'Ваше имя', value: name },
-        { name: 'Статус', value: statusText },
-        { name: 'Напитки', value: drinksText },
-        { name: 'Пожелания', value: info }
-    ];
+    // Открываем форму в новой вкладке с предзаполненными данными
+    window.open(`${formUrl}?${params.toString()}`, '_blank');
 
-    fields.forEach(field => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = field.name;
-        input.value = field.value;
-        form.appendChild(input);
-    });
-
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-
-    // Показываем гостью, что всё прошло успешно
-    alert('✔️ Спасибо! Ваши данные были переданы в форму. Пожалуйста, подтвердите отправку в открывшейся вкладке Яндекса.');
+    // Сбрасываем поля на сайте (опционально)
+    nameInput.value = '';
+    if (infoInput) infoInput.value = '';
+    document.querySelectorAll('.drink-btn.selected').forEach(btn => btn.classList.remove('selected'));
 }
 
 // 7. Логика резервирования подарков
@@ -174,7 +164,6 @@ function reserveGift(btn) {
 // 8. Логика обратного отсчета (Таймер)
 function updateCountdown() {
     // Укажите вашу целевую дату: Год, Месяц (0-11), День, Час, Минута
-    // Июль = 6 (так как отсчет с 0)
     const targetDate = new Date(2026, 6, 17, 17, 0, 0).getTime();
     const now = new Date().getTime();
     const distance = targetDate - now;
