@@ -18,21 +18,21 @@
     <div class="bg-star star-f2">✦</div>
     <div class="bg-star star-f3">✦</div>
 
-<!-- 1. Бегущая строка с датой -->
-<div class="ticker-wrap">
-    <div class="ticker">
-        <span>/ 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / </span>
-        <span>/ 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / </span>
+    <!-- 1. Бегущая строка с датой -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>/ 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / </span>
+            <span>/ 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / 17.07.2026 / </span>
+        </div>
     </div>
-</div>
 
     <!-- 2. Меню навигации -->
-<div class="nav-menu">
-    <div class="nav-item" onclick="scrollTo('program')">Программа</div>
-    <div class="nav-item" onclick="scrollTo('location')">Локация</div>
-    <div class="nav-item" onclick="scrollTo('dress-code')">Дресс-код</div>
-    <div class="nav-item wide" onclick="scrollTo('rsvp')">Анкета</div>
-</div>
+    <div class="nav-menu">
+        <div class="nav-item" onclick="scrollTo('program')">Программа</div>
+        <div class="nav-item" onclick="scrollTo('location')">Локация</div>
+        <div class="nav-item" onclick="scrollTo('dress-code')">Дресс-код</div>
+        <div class="nav-item wide" onclick="scrollTo('rsvp')">Анкета</div>
+    </div>
 
     <!-- Кнопка музыки -->
     <div class="music-btn-wrapper">
@@ -44,8 +44,8 @@
         </button>
     </div>
 
-    <!-- 3. Главный экран -->
-  <section class="info-section scroll-section" id="location">
+    <!-- 3. Главный экран (Невеста и Жених) -->
+    <section class="hero scroll-section" id="home">
         <div class="title-box fade-up">Невеста</div>
         <div class="title-box small fade-up">и</div>
         <div class="title-box fade-up">Жених</div>
@@ -105,7 +105,7 @@
     </section>
 
     <!-- 8. Локация -->
-<section class="info-section scroll-section" id="location">
+    <section class="info-section scroll-section" id="location">
         <div class="section-header-wrapper fade-up">
             <div class="small-star s-s1">✦</div>
             <div class="section-title-tilt">Локация</div>
@@ -118,8 +118,8 @@
         </div>
     </section>
 
-    <!-- 9. Тайминг -->
-  <section class="info-section scroll-section" id="program">
+    <!-- 9. Тайминг (Программа) -->
+    <section class="info-section scroll-section" id="program">
         <div class="section-header-wrapper fade-up">
             <div class="small-star s-s3">✦</div>
             <div class="section-title-tilt" style="transform: rotate(2deg);">Тайминг</div>
@@ -160,8 +160,7 @@
     </section>
 
     <!-- 10. Дресс-код -->
-    
-<section class="info-section scroll-section dress-code-section" id="dress-code">
+    <section class="info-section scroll-section dress-code-section" id="dress-code">
         <div class="section-header-wrapper fade-up">
             <div class="section-title-tilt" style="transform: rotate(-3deg);">Дресс-код</div>
             <div class="small-star s-s4" style="top: -15px; right: 15%; font-size: 25px;">✦</div>
@@ -183,8 +182,8 @@
         </div>
     </section>
 
-    <!-- 11. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ (Упрощенная версия) -->
-  <section class="rsvp-section scroll-section" id="rsvp">
+    <!-- 11. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ (Анкета) -->
+    <section class="rsvp-section scroll-section" id="rsvp">
         <div class="section-header-wrapper fade-up">
             <div class="small-star s-s3" style="top: -20px; left: 10%;">✦</div>
             <div class="section-title-tilt" style="font-size: 24px;">Подтвердите<br>присутствие</div>
