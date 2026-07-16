@@ -124,7 +124,15 @@ function updateCountdown() {
     document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
     document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
 }
-
+// 7. Навигация по странице (плавный скролл)
+function scrollTo(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+}
 // Запускаем таймер сразу и обновляем каждую секунду
 updateCountdown();
 setInterval(updateCountdown, 1000);
