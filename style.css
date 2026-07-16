@@ -98,6 +98,10 @@ body {
 }
 
 .nav-item:active { opacity: 0.6; }
+/* Отступ для навигации, чтобы заголовки не перекрывались бегущей строкой */
+#location, #program, #dress-code, #rsvp {
+    scroll-margin-top: 75px;
+}
 
 /* --- Скролл анимации --- */
 .scroll-section {
