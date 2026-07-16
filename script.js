@@ -66,8 +66,8 @@ function addToCalendar() {
         'VERSION:2.0',
         'PRODID:-//Wedding Invite//RU',
         'BEGIN:VEVENT',
-        'SUMMARY:Свадьба Невесты и Жениха',
-        'LOCATION:Ресторан "Небо", ул. Пушкина, д. 1',
+        'SUMMARY:Свадьба Ксении и Даниила',
+        'LOCATION:ЗАГС, наб. Брюгге, 5',
         'DESCRIPTION:Дорогие гости, ждем вас на нашем торжестве!',
         'DTSTART:' + formatICSDate(startDate),
         'DTEND:' + formatICSDate(endDate),
@@ -93,7 +93,7 @@ function submitRsvp() {
 
 // 6. Логика обратного отсчета (Таймер)
 function updateCountdown() {
-    const targetDate = new Date(2026, 6, 17, 17, 0, 0).getTime();
+    const targetDate = new Date(2027, 2, 27, 27, 0, 0).getTime();
     const now = new Date().getTime();
     const distance = targetDate - now;
 
