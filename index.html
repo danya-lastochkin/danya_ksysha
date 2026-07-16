@@ -27,12 +27,12 @@
 </div>
 
     <!-- 2. Меню навигации -->
-    <div class="nav-menu">
-        <div class="nav-item">Программа</div>
-        <div class="nav-item">Локация</div>
-        <div class="nav-item">Дресс-код</div>
-        <div class="nav-item wide">Анкета</div>
-    </div>
+<div class="nav-menu">
+    <div class="nav-item" onclick="scrollTo('program')">Программа</div>
+    <div class="nav-item" onclick="scrollTo('location')">Локация</div>
+    <div class="nav-item" onclick="scrollTo('dress-code')">Дресс-код</div>
+    <div class="nav-item wide" onclick="scrollTo('rsvp')">Анкета</div>
+</div>
 
     <!-- Кнопка музыки -->
     <div class="music-btn-wrapper">
@@ -45,7 +45,7 @@
     </div>
 
     <!-- 3. Главный экран -->
-    <section class="hero scroll-section">
+  <section class="info-section scroll-section" id="location">
         <div class="title-box fade-up">Невеста</div>
         <div class="title-box small fade-up">и</div>
         <div class="title-box fade-up">Жених</div>
@@ -105,7 +105,7 @@
     </section>
 
     <!-- 8. Локация -->
-    <section class="info-section scroll-section">
+<section class="info-section scroll-section" id="location">
         <div class="section-header-wrapper fade-up">
             <div class="small-star s-s1">✦</div>
             <div class="section-title-tilt">Локация</div>
@@ -119,7 +119,7 @@
     </section>
 
     <!-- 9. Тайминг -->
-    <section class="info-section scroll-section">
+  <section class="info-section scroll-section" id="program">
         <div class="section-header-wrapper fade-up">
             <div class="small-star s-s3">✦</div>
             <div class="section-title-tilt" style="transform: rotate(2deg);">Тайминг</div>
@@ -160,7 +160,8 @@
     </section>
 
     <!-- 10. Дресс-код -->
-    <section class="info-section scroll-section dress-code-section">
+    
+<section class="info-section scroll-section dress-code-section" id="dress-code">
         <div class="section-header-wrapper fade-up">
             <div class="section-title-tilt" style="transform: rotate(-3deg);">Дресс-код</div>
             <div class="small-star s-s4" style="top: -15px; right: 15%; font-size: 25px;">✦</div>
@@ -183,7 +184,7 @@
     </section>
 
     <!-- 11. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ (Упрощенная версия) -->
-    <section class="rsvp-section scroll-section" style="padding-bottom: 50px;">
+  <section class="rsvp-section scroll-section" id="rsvp">
         <div class="section-header-wrapper fade-up">
             <div class="small-star s-s3" style="top: -20px; left: 10%;">✦</div>
             <div class="section-title-tilt" style="font-size: 24px;">Подтвердите<br>присутствие</div>
