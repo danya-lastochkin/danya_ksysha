@@ -103,8 +103,10 @@ function toggleDrink(btn) {
     btn.classList.toggle('selected');
 }
 
-// 6. ИСПРАВЛЕННАЯ ОТПРАВКА С ДИАГНОСТИКОЙ ОШИБОК
-async function submitRsvp() {
+// ==========================================
+// 6. ИСПРАВЛЕННАЯ ОТПРАВКА (Без ошибки CORS)
+// ==========================================
+function submitRsvp() {
     // Получаем все инпуты
     const inputs = document.querySelectorAll('.rsvp-input');
     const nameInput = inputs[0]; // Ваше имя
@@ -124,55 +126,39 @@ async function submitRsvp() {
     });
     const drinksText = selectedDrinks.length > 0 ? selectedDrinks.join(', ') : 'Не выбрано';
 
-    // Валидация
     if (!name) {
         alert('Пожалуйста, введите ваше имя!');
         return;
     }
 
-    // Формируем данные в порядке вопросов вашей Яндекс Формы
-    const data = {
-        answers: [
-            { text: name },
-            { text: statusText },
-            { text: drinksText },
-            { text: info }
-        ]
-    };
+    // Создаем скрытую форму для отправки в Яндекс (обход CORS)
+    const form = document.createElement('form');
+    form.action = `https://forms.yandex.ru/u/${YANDEX_FORM_ID}/`;
+    form.method = 'POST';
+    form.target = '_blank'; // Откроется в новой вкладке
 
-    try {
-        const response = await fetch(`https://forms.yandex.ru/api/forms/${YANDEX_FORM_ID}/responses/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
+    // Поля должны совпадать с названиями вопросов в вашей Яндекс Форме
+    const fields = [
+        { name: 'Ваше имя', value: name },
+        { name: 'Статус', value: statusText },
+        { name: 'Напитки', value: drinksText },
+        { name: 'Пожелания', value: info }
+    ];
 
-        // Если сервер ответил ошибкой (например, 400 или 403)
-        if (!response.ok) {
-            // Пытаемся прочитать, что именно сказал сервер
-            const errorText = await response.text();
-            console.error('🚨 Ошибка API Яндекса:', response.status, errorText);
-            alert(`Ошибка сервера (код ${response.status}). Откройте консоль браузера (F12) и посмотрите ошибку.`);
-            return;
-        }
+    fields.forEach(field => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = field.name;
+        input.value = field.value;
+        form.appendChild(input);
+    });
 
-        // Если всё хорошо
-        alert('Спасибо! Ваш ответ успешно отправлен! Мы очень ждем вас ❤️');
-        
-        // Сброс полей
-        nameInput.value = '';
-        if (infoInput) infoInput.value = '';
-        document.querySelectorAll('.drink-btn.selected').forEach(btn => btn.classList.remove('selected'));
-        document.getElementById('acceptBtn').classList.add('active');
-        document.getElementById('declineBtn').classList.remove('active');
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
 
-    } catch (error) {
-        // Если это ошибка сети / CORS
-        console.error('🚨 Полная ошибка запроса:', error);
-        alert('Ошибка сети или блокировка CORS. Подробности в консоли (F12).');
-    }
+    // Показываем гостью, что всё прошло успешно
+    alert('✔️ Спасибо! Ваши данные были переданы в форму. Пожалуйста, подтвердите отправку в открывшейся вкладке Яндекса.');
 }
 
 // 7. Логика резервирования подарков
