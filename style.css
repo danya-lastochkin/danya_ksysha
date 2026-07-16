@@ -72,29 +72,26 @@ body {
     100% { transform: translateX(-50%); } /* Сдвигаем ровно на половину длины, чтобы создать непрерывность */
 }
 
-/* --- Меню навигации --- */
+/* --- Меню навигации в одну строку --- */
 .nav-menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0px;
+    display: flex;
+    justify-content: space-evenly; /* Равномерно распределяет кнопки по ширине */
+    align-items: center;
     padding: 20px 25px 5px 25px;
     background-color: var(--bg-color);
     position: relative;
     z-index: 2;
+    flex-wrap: wrap; /* На случай очень маленьких экранов перенесет, если не влезут */
+    gap: 5px 10px;
 }
 
 .nav-item {
     font-weight: 800;
     font-size: 14px;
     color: var(--text-dark);
-    padding: 5px 0;
+    padding: 5px 10px;
     cursor: pointer;
     transition: opacity 0.2s;
-}
-
-.nav-item.wide {
-    grid-column: 1 / 4;
-    margin-top: 5px;
 }
 
 .nav-item:active { opacity: 0.6; }
