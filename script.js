@@ -84,74 +84,7 @@ function addToCalendar() {
     document.body.removeChild(link);
 }
 
-// 4. Логика RSVP (Подтверждение)
-function setRsvp(status) {
-    const acceptBtn = document.getElementById('acceptBtn');
-    const declineBtn = document.getElementById('declineBtn');
-    
-    if (status === 'accept') {
-        acceptBtn.classList.add('active');
-        declineBtn.classList.remove('active');
-    } else if (status === 'decline') {
-        declineBtn.classList.add('active');
-        acceptBtn.classList.remove('active');
-    }
-}
-
-// 5. Логика выбора напитков (Кнопки)
-function toggleDrink(btn) {
-    btn.classList.toggle('selected');
-}
-
-// ==========================================
-// 6. ФИНАЛЬНАЯ ОТПРАВКА (Через предзаполненную ссылку)
-// Теперь 100% без ошибок CORS и POST
-// ==========================================
-function submitRsvp() {
-    // Получаем все инпуты
-    const inputs = document.querySelectorAll('.rsvp-input');
-    const nameInput = inputs[0]; // Ваше имя
-    const infoInput = inputs[1]; // Дополнительная информация
-
-    const name = nameInput.value.trim();
-    const info = infoInput ? infoInput.value.trim() : '';
-
-    // Проверяем статус (Принять / Отклонить)
-    const isAccepted = document.getElementById('acceptBtn').classList.contains('active');
-    const statusText = isAccepted ? 'Принять' : 'Отклонить';
-
-    // Собираем выбранные напитки
-    const selectedDrinks = [];
-    document.querySelectorAll('.drink-btn.selected').forEach(btn => {
-        selectedDrinks.push(btn.innerText.trim());
-    });
-    const drinksText = selectedDrinks.length > 0 ? selectedDrinks.join(', ') : 'Не выбрано';
-
-    if (!name) {
-        alert('Пожалуйста, введите ваше имя!');
-        return;
-    }
-
-    // Собираем ссылку на Яндекс Форму с параметрами (работает через GET)
-    const formUrl = `https://forms.yandex.ru/u/${YANDEX_FORM_ID}/`;
-    
-    // Создаем параметры (они автоматически закодируют кириллицу и пробелы)
-    const params = new URLSearchParams();
-    params.append('Ваше имя', name);
-    params.append('Статус', statusText);
-    params.append('Напитки', drinksText);
-    params.append('Пожелания', info);
-
-    // Открываем форму в новой вкладке с предзаполненными данными
-    window.open(`${formUrl}?${params.toString()}`, '_blank');
-
-    // Сбрасываем поля на сайте (опционально)
-    nameInput.value = '';
-    if (infoInput) infoInput.value = '';
-    document.querySelectorAll('.drink-btn.selected').forEach(btn => btn.classList.remove('selected'));
-}
-
-// 7. Логика резервирования подарков
+// 4. Логика резервирования подарков
 function reserveGift(btn) {
     const item = btn.closest('.gift-item');
     const title = item.querySelector('.gift-title').innerText;
@@ -161,9 +94,14 @@ function reserveGift(btn) {
     alert(`Вы зарезервировали подарок: ${title}`);
 }
 
-// 8. Логика обратного отсчета (Таймер)
+// 5. САМАЯ ПРОСТАЯ ОТПРАВКА (Просто переход на Яндекс Форму)
+function submitRsvp() {
+    const formUrl = `https://forms.yandex.ru/u/${YANDEX_FORM_ID}/`;
+    window.open(formUrl, '_blank');
+}
+
+// 6. Логика обратного отсчета (Таймер)
 function updateCountdown() {
-    // Укажите вашу целевую дату: Год, Месяц (0-11), День, Час, Минута
     const targetDate = new Date(2026, 6, 17, 17, 0, 0).getTime();
     const now = new Date().getTime();
     const distance = targetDate - now;
